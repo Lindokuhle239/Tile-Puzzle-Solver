@@ -22,3 +22,4 @@ class TileManager{
         bool isValidMove(int row, int col) const; //check validity of move
         void move(int nextRow, int nextCol); //move to a new tile
 };
+#endif
