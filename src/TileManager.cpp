@@ -22,4 +22,12 @@ TileManager::TileManager(int size, const std::string& name) : gridSize(size), em
             grid[y][x].copyData(imageData + (y * tileHt * imageWd + x * tileWd), imageWd, imageHt);
         }
     }
+
+    TileManager::~TileManager(){
+        //grid will be managed by std::vector -- so no need dynamic memory to clean up
+    }
+
+    bool TileManager::isValidMove(int row, int col) const {
+        return (row >= 0 && row < gridSize && col >= 0 && col < gridSize);
+    }
 }
