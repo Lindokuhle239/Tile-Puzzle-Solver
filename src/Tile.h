@@ -10,4 +10,7 @@ class Tile{
         void setPixel(int x, int y, unsigned char val); //set pixel value
 
         void copyData(const unsigned char* source, int sourceWd, int sourceHt); //copy pixels
+
+        bool isEmpty() const; //check if tile is empty
+        void printTile() const; //print tile data -- for debugging!!!
 };
