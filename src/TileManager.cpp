@@ -56,3 +56,22 @@ void TileManager::generateRandMove(){
         move(nextRow, nextCol);
     }
 }
+
+void TileManager::writeBoardState(const std::string& filename) const{
+    //create buffer for the output file
+    unsigned char* outputImageData = new unsigned char[imageWd * imageHt];
+
+    //copy each tile's data into the output buffer
+    for (int row = 0; row < gridSize; ++row){
+        for (int col = 0; col < gridSize; ++col){
+            for (int y = 0; y < tileHt; ++y){
+                for (int x = 0; x < tileWd; ++x){
+                    int outputX = col * tileWd + x;
+                    int outputY = row * tileHt + y;
+
+                    outputImageData[outputY * imageWd + outputX] = grid[row][col].getPixel(x, y);
+                }
+            }
+        }
+    }
+}
