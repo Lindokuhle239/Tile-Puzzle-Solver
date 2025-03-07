@@ -74,4 +74,12 @@ void TileManager::writeBoardState(const std::string& filename) const{
             }
         }
     }
+//write the output image
+PGMimage outputImage;
+outputImage.setImageData(outputImageData, imageWd, imageHt);
+outputImage.write(filename);
+
+//clean up
+delete[] outputImageData;
 }
+
