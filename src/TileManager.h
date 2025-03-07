@@ -18,4 +18,7 @@ class TileManager{
         int gridSize; //size of the grid
         int imageWd, imageHt; //dimensions of the input image
         int tileWd, tileHt; //dimensions of each tile
-}
+
+        bool isValidMove(int row, int col) const; //check validity of move
+        void move(int nextRow, int nextCol); //move to a new tile
+};
