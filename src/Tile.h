@@ -13,4 +13,9 @@ class Tile{
 
         bool isEmpty() const; //check if tile is empty
         void printTile() const; //print tile data -- for debugging!!!
+
+    private:
+        unsigned char* data; //pixel data
+        int wd; //tile width
+        int ht; //tile height
 };
