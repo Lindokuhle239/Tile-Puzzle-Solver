@@ -35,3 +35,12 @@ bool Tile::isEmpty() const{
     }
     return true; //tile is empty
 }
+
+void Tile::printTile() const{
+    for (int y = 0; y < ht; ++y){
+        for (int x = 0; x < wd; ++x){
+            std::cout << static_cast<int>(getPixel(x, y)) << " "; //print pixel values
+        }
+        std::cout << std::endl;
+    }
+}
