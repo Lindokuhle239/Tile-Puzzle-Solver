@@ -10,3 +10,7 @@ Tile::Tile(int tileWd, int tileHt){
 Tile::~Tile(){
     delete[] data; //free memory
 }
+
+unsigned char Tile::getPixel(int x, int y) const{
+    return data[y * wd + x]; //return pixel value
+}
