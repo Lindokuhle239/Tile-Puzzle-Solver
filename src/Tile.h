@@ -19,3 +19,4 @@ class Tile{
         int wd; //tile width
         int ht; //tile height
 };
+#endif
