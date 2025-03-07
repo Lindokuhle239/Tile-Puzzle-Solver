@@ -8,7 +8,9 @@ Tile::Tile(int tileWd, int tileHt){
 }
 
 Tile::~Tile(){
-    delete[] data; //free memory
+    if (data){
+        delete[] data; //free memory  if it was allocated
+    }
 }
 
 unsigned char Tile::getPixel(int x, int y) const{
