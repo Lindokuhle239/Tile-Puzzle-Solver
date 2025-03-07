@@ -1,5 +1,5 @@
 #include "TileManager.h"
-#include <sctdlib>
+#include <cstdlib>
 
 TileManager::TileManager(int size, const std::string& name) : gridSize(size), emptyRow(size - 1), emptyCol(size - 1){
     //load input image
@@ -30,4 +30,16 @@ TileManager::TileManager(int size, const std::string& name) : gridSize(size), em
     bool TileManager::isValidMove(int row, int col) const {
         return (row >= 0 && row < gridSize && col >= 0 && col < gridSize);
     }
+}
+
+void TileManager::move(int nextRow, int nextCol){
+    if (!isValidMove(nextRow, nextCol)){
+        return;
+    }
+    //swap empty tile with the tile at (nextRow, nextCol)
+    std::swap(grid[emptyRow][emptyCol], grid[nextRow][nextCol]);
+
+    //update the position of the empty tile
+    emptyRow = nextRow;
+    emptyCol = nextCol;
 }
