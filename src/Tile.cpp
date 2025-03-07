@@ -26,3 +26,12 @@ void Tile::copyData(const unsigned char* source, int sourceWd, int sourceHt){
         }
     }
 }
+
+bool Tile::isEmpty() const{
+    for (int i = 0; i < wd * ht; ++i){
+        if (data[i] != 0){
+            return false; //tile is not empty
+        }
+    }
+    return true; //tile is empty
+}
