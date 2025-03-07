@@ -46,7 +46,7 @@ void TileManager::move(int nextRow, int nextCol){
 
 void TileManager::generateRandMove(){
     //generate a random direction -> up/down/left/right
-    int directions[4][2] = {{-1,0}, {1,0}, {0, -1} {0,1}};
+    int directions[4][2] = {{-1,0}, {1,0}, {0, -1}, {0,1}};
     int randIndex = rand() % 4;
 
     int nextRow = emptyRow + directions[randIndex][0];
