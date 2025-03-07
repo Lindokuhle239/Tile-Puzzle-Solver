@@ -43,3 +43,16 @@ void TileManager::move(int nextRow, int nextCol){
     emptyRow = nextRow;
     emptyCol = nextCol;
 }
+
+void TileManager::generateRandMove(){
+    //generate a random direction -> up/down/left/right
+    int directions[4][2] = {{-1,0}, {1,0}, {0, -1} {0,1}};
+    int randIndex = rand() % 4;
+
+    int nextRow = emptyRow + directions[randIndex][0];
+    int nextCol = emptyCol + directions[randIndex][1];
+
+    if (isValidMove(nextRow, nextCol)){
+        move(nextRow, nextCol);
+    }
+}
