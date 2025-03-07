@@ -69,7 +69,9 @@ void TileManager::writeBoardState(const std::string& filename) const{
                     int outputX = col * tileWd + x;
                     int outputY = row * tileHt + y;
 
-                    outputImageData[outputY * imageWd + outputX] = grid[row][col].getPixel(x, y);
+                    if (outputY < imageHt && outputX < imageWd){
+                        outputImageData[outputY * imageWd + outputX] = grid[row][col].getPixel(x, y);
+                    }
                 }
             }
         }
