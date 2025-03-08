@@ -13,15 +13,24 @@ TileManager::TileManager(int size, const std::string& name) : gridSize(size), em
     tileHt = imageHt / gridSize;
 
     //initialize the grid tiles
-    grid.resize(gridSize, std::vector<Tile>(gridSize, Tile(tileWd, tileHt)));
+    grid.resize(gridSize);
 
+    //divide image into tiles and store them in the grid
+    //const unsigned char* imageData = image.getBuffer();
+    for (int y = 0; y < gridSize; ++y){
+        grid[y].reserve(gridSize); //reserve space for each row
+        for (int x = 0; x < gridSize; ++x){
+            //grid[y][x].copyData(imageData + (y * tileHt * imageWd + x * tileWd), imageWd, imageHt);
+            grid[y].emplace_back(tileWd, tileHt); //constructs tile obejects in place
+        }
+    }
     //divide image into tiles and store them in the grid
     const unsigned char* imageData = image.getBuffer();
     for (int y = 0; y < gridSize; ++y){
         for (int x = 0; x < gridSize; ++x){
             grid[y][x].copyData(imageData + (y * tileHt * imageWd + x * tileWd), imageWd, imageHt);
         }
-    }
+    }    
 }
 
 TileManager::~TileManager(){
