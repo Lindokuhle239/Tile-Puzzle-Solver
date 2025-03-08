@@ -10,6 +10,10 @@ class Tile{
         Tile(const Tile&) = delete;
         Tile& operator=(const Tile&) = delete;
 
+        
+        Tile(Tile&& other) noexcept; //move constructor
+        Tile& operator=(Tile&& other) noexcept; //move assign constructor
+
         unsigned char getPixel(int x, int y) const; //get pixel value
         void setPixel(int x, int y, unsigned char val); //set pixel value
 
