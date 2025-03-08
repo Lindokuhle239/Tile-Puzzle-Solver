@@ -8,7 +8,7 @@ Tile::Tile(int tileWd, int tileHt){
 }
 
 //move constructor
-Tile::Tile(Tile&& other) noexcept : wd(other.wd), ht(other.ht), data(other.data){
+Tile::Tile(Tile&& other) noexcept : wd(other.wd), data(other.data), ht(other.ht){
     other.data = nullptr; //ensure the moved-from object no longer owns the data
     other.wd = 0;
     other.ht =0;
