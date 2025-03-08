@@ -8,8 +8,8 @@ BIN_DIR = bin
 TEST_DIR = test_files
 
 #Source files
-SRCS = $(SRC_DIR)/PGMimage.cpp $(SRC_DIR)/Tile.cpp $(SRC_DIR)/TileManager.cpp
-OBJS = $(SRC:.cpp=.o)
+SRCS = $(SRC_DIR)/PGMimage.cpp $(SRC_DIR)/Tile.cpp $(SRC_DIR)/TileManager.cpp $(SRC_DIR)/tileManagerTest.cpp
+OBJS = $(SRCS:.cpp=.o)
 
 #Executables
 TARGET = $(BIN_DIR)/program
@@ -24,7 +24,7 @@ $(SRC_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(BIN_DIR) $(SRC_DIR)/*.o
+	rm -rf $(BIN_DIR) $(SRC_DIR)/*.o $(SRC_DIR)/*.pgm
 
 run: $(TARGET)
 	$(TARGET)
