@@ -23,8 +23,8 @@ class Tile{
         void printTile() const; //print tile data -- for debugging!!!
 
     private:
-        unsigned char* data; //pixel data
         int wd; //tile width
+        unsigned char* data; //pixel data
         int ht; //tile height
 };
 #endif
