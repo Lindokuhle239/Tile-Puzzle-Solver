@@ -6,6 +6,10 @@ class Tile{
         Tile(int tileWd, int tileHt); //Constructor
         ~Tile(); //Destructor  
 
+        //disable copy constructor and assign operator
+        Tile(const Tile&) = delete;
+        Tile& operator=(const Tile&) = delete;
+
         unsigned char getPixel(int x, int y) const; //get pixel value
         void setPixel(int x, int y, unsigned char val); //set pixel value
 
