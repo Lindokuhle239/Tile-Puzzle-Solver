@@ -7,6 +7,33 @@ Tile::Tile(int tileWd, int tileHt){
     data = new unsigned char[wd * ht]; //allocate memory
 }
 
+//move constructor
+Tile::Tile(Tile&& other) noexcept : wd(other.wd), ht(other.ht), data(other.data){
+    other.data = nullptr; //ensure the moved-from object no longer owns the data
+    other.wd = 0;
+    other.ht =0;
+}
+
+//move assignment operator
+Tile& Tile::operator=(Tile&& other) noexcept{
+    if (this !=&other){ //check for self assignment
+        //free existing resources
+        if (data){
+            delete[] data;
+        }
+
+        wd = other.wd;
+        ht = other.ht;
+        data = other.data;
+
+        //reset the moved from obj
+        other.data = nullptr;
+        other.wd = 0;
+        other.ht = 0;
+    }
+    return *this;
+}
+
 Tile::~Tile(){
     if (data){
         delete[] data; //free memory  if it was allocated
