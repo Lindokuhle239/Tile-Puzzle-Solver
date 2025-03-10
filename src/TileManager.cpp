@@ -30,7 +30,13 @@ TileManager::TileManager(int size, const std::string& name) : emptyRow(size - 1)
         for (int x = 0; x < gridSize; ++x){
             grid[y][x].copyData(imageData + (y * tileHt * imageWd + x * tileWd), imageWd, imageHt);
         }
-    }    
+    }  
+    //clear the bottom right corner tile to make it empty
+    for (int y = 0; y < tileHt; ++y){
+        for (int x = 0; x < tileWd; ++x){
+            grid[emptyRow][emptyCol].setPixel(x, y, 0); //0 sets the pixel to black
+        }
+    }  
 }
 
 TileManager::~TileManager(){
