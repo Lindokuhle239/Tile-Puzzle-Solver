@@ -9,6 +9,8 @@ int main(){
 
     TileManager manager(3, "test_files/mona512.pgm");
 
+    manager.writeBoardState("output-0.pgm");
+
     for (int i = 1; i <= 5; ++i){
         manager.generateRandMove();
         manager.writeBoardState("output-" + std::to_string(i) + ".pgm");
