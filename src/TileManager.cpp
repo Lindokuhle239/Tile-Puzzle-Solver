@@ -106,6 +106,7 @@ outputImage.write(filename);
 
 //clean up
 delete[] outputImageData;
+}
 
 void TileManager::createSummaryImage(const std::string& outputImage, int numMoves, const std::string& summaryImageName) const{
     //calc the layout of the sub-images
@@ -149,6 +150,5 @@ void TileManager::createSummaryImage(const std::string& outputImage, int numMove
 
     //clean-up
     delete[] summaryData;
-}
 }
 
