@@ -110,7 +110,7 @@ delete[] outputImageData;
 void TileManager::createSummaryImage(const std::string& outputImage, int numMoves, const std::string& summaryImageName) const{
     //calc the layout of the sub-images
     int numImages = numMoves + 1;
-    int cols = static_cast<std::ceil(std::sqrt(numImages))); //num of cols
+    int cols = static_cast<int>(std::ceil(std::sqrt(numImages))); //num of cols
     int rows = (numImages + cols - 1) / cols; //num of rows
 
     //Calc size of the summary image
