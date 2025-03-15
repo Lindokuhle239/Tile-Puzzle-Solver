@@ -106,5 +106,42 @@ outputImage.write(filename);
 
 //clean up
 delete[] outputImageData;
+
+void TileManager::createSummaryImage(const std::string& outputImage, int numMoves, const std::string& summaryImageName) const{
+    //calc the layout of the sub-images
+    int numImages = numMoves + 1;
+    int cols = static_cast<std::ceil(std::sqrt(numImages))); //num of cols
+    int rows = (numImages + cols - 1) / cols; //num of rows
+
+    //Calc size of the summary image
+    int margin = 10; //margin between sub-images
+    int summaryWd = cols * (imageWd + margin) - margin;
+    int summaryHt = rows * (imageHt + margin) - margin;
+
+    //create a white background image
+    unsigned char* summaryData = new unsigned char[summaryWd * summaryHt];
+    std::fill(summaryData, summaryData + summaryWd * summaryHt, 255); //fill with white (255)
+
+    //copy each board state image into the summary image
+    for (int i = 0; i < numImages; ++i){
+        PGMimage boardImage;
+        boardImage.read(outputImage + "-" + std::to_string(i) + ".pgm");
+
+        //calc the position of the sub-image
+        int row = i / cols;
+        int col = i % cols;
+        int x = col * (imageWd + margin);
+        int y = row * (imageHt + margin);
+
+        //copy the board state image into the summary image
+        const unsigned char* boardData = boardImage.getBuffer();
+        for (int dy = 0; dy < imageHt; ++dy){
+            for (int dx = 0; dx < imageWd; ++dx){
+                summaryData[(y + dy) * summaryWd + (x + dx)] = boardData[dy + imageWd + dx]
+            }
+        }
+    }
+
+}
 }
 
