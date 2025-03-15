@@ -11,6 +11,7 @@ class TileManager{
 
         void generateRandMove(); //generate a random valid move
         void writeBoardState(const std::string& fileName) const; //write the board state to a pgm file
+        void createSummaryImage(const std::string& outputImage, int numMoves, const std::string & summaryImage) const;
 
     private:
         std::vector<std::vector<Tile>> grid; //grid of tiles
