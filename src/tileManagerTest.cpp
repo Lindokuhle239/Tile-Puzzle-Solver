@@ -35,15 +35,19 @@ int main(int argc, char* argv[]){
     //seed the random num generator
     std::srand(static_cast<unsigned int>(std::time(0)));
 
-    TileManager manager(5, "test_files/mona512.pgm");
+    TileManager manager(gridSize, inputImageName);
 
-    manager.writeBoardState("output-0.pgm");
+    manager.writeBoardState(outputBaseName + "-0.pgm");
 
-    for (int i = 1; i <= 10; ++i){
+    for (int i = 1; i <= numMoves; ++i){
         manager.generateRandMove();
         manager.writeBoardState("output-" + std::to_string(i) + ".pgm");
     }
 
-    std::cout << "Generated 5 random moves and write output images" << std::endl;
+    if (!summaryImageName.empty()){
+        manager.createSummaryImage(outputBaseName, numMoves, summaryImageName);
+    }
+
+    std::cout << "Generated " << numMoves << " random moves and write output images" << std::endl;
     return 0;
 }
