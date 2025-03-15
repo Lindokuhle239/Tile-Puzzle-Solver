@@ -142,6 +142,13 @@ void TileManager::createSummaryImage(const std::string& outputImage, int numMove
         }
     }
 
+    //write the summary image to a file
+    PGMimage summaryImage;
+    summaryImage.setImageData(summaryData, summaryWd, summaryHt);
+    summaryImage.write(summaryImageName);
+
+    //clean-up
+    delete[] summaryData;
 }
 }
 
