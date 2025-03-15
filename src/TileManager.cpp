@@ -137,7 +137,7 @@ void TileManager::createSummaryImage(const std::string& outputImage, int numMove
         const unsigned char* boardData = boardImage.getBuffer();
         for (int dy = 0; dy < imageHt; ++dy){
             for (int dx = 0; dx < imageWd; ++dx){
-                summaryData[(y + dy) * summaryWd + (x + dx)] = boardData[dy + imageWd + dx]
+                summaryData[(y + dy) * summaryWd + (x + dx)] = boardData[dy * imageWd + dx];
             }
         }
     }
