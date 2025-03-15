@@ -1,5 +1,6 @@
 #include "TileManager.h"
 #include <cstdlib>
+#include <cmath>
 
 TileManager::TileManager(int size, const std::string& name) : emptyRow(size - 1), emptyCol(size - 1), gridSize(size){
     //load input image
