@@ -7,27 +7,27 @@ This program generates a tile puzzle solver from a pgm image and simulates rando
 Assignment/
 |--src/
 
-|  |--PGMimage.h	
+|    |--PGMimage.h	
 
-|  |--PGMimage.cpp
+|    |--PGMimage.cpp
 
-|  |--Tile.h
+|    |--Tile.h
 
-|  |--Tile.cpp
+|    |--Tile.cpp
 
-|  |--TileManager.h
+|    |--TileManager.h
 
-|  |--TileManager.cpp
+|    |--TileManager.cpp
 
-|  |--tileManagerTest
+|    |--tileManagerTest
 
 |--test_file/
 
-|  |--mona512.pgm
+|    |--mona512.pgm
 
-|  |--raytrace.pgm
+|    |--raytrace.pgm
 
-|  |--steelb.pgm
+|    |--steelb.pgm
 
 |--Makefile
 
